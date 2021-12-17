@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react'
 import { ece,eee } from '../../content/depts'
 import Semester from './Semester'
 import useWindowDimensions from "../Utils/useWindowDimensions";
+import Popup from '../SPI/Popup';
+import Alert from './Alert';
 
 const gradeMultiplier = (grade)=>{
     switch (grade) {
@@ -31,6 +33,11 @@ const gradeMultiplier = (grade)=>{
 const Cpi = () => {
 
     const [data, setdata] = useState(null)
+    const [addCourseSem, setaddCourseSem] = useState(null)
+    const [cpi, setCpi] = useState(0)
+    const [error, seterror] = useState(null)
+    const [alert, setAlert] = useState(false)
+
     const { width } = useWindowDimensions();
 
     useEffect(() => {
@@ -54,25 +61,53 @@ const Cpi = () => {
     }
     
     const handelCalculateCPI = () =>{
-        console.log(CPICalculator(data))
+        let checkError =[]
+        for (let i = 0; i < data.length; i++) {
+            checkError = data[i].filter((ele)=>ele.grade?true:false);
+        }
+        if(checkError.length===0){
+            seterror("Please Choose Grade of at least one Course")
+        }else{
+            setCpi(CPICalculator(data))
+        }
+        setAlert(true)
+    }
+
+    const handelAddCourseSubmit = (course,gradeValue,creditValue)=>{
+        const tempData = [...data];
+        let newCourse = {
+          courseName:course,
+          credit:parseInt(creditValue),
+          grade:gradeValue.name
+        }
+
+        tempData[addCourseSem-1] = [
+            ...tempData[addCourseSem-1],
+            newCourse,
+        ]
+        setdata(tempData)    
     }
 
     return (
+        <>
+        <Popup handelAddCourseSubmit={handelAddCourseSubmit}/>
+        {alert && <Alert cpi={cpi} setAlert={setAlert} error={error} seterror={seterror}/>}
         <div className={`${width<600?"":"card"}`} >
-             <div className={`${width<600?"":"card-body"}`}>
+            <div className={`${width<600?"":"card-body"}`}>
                 <div className={`${width<600?"":"row"}`}>
                     {data && data.map((semester,i)=>{
-                        return <div key={i} className="col-md-6"><Semester sems = {i+1} courses = {semester} handelGradeChange={handelGradeChange}/> </div> 
+                        return <div key={i} className="col-md-6"><Semester setaddCourseSem={setaddCourseSem} sems = {i+1} courses = {semester} handelGradeChange={handelGradeChange}/> </div> 
                     })} 
                 </div>   
-             </div>
+            </div>
             <div className="container" id="btn_cal">
-        <div className="row my-4">
-          <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateCPI}>Calculate CPI</button></div>
-          <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger">Calculate Again</button></div>
+                <div className="row my-4">
+                    <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateCPI}>Calculate CPI</button></div>
+                    <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger">Calculate Again</button></div>
+                </div>
+            </div>
         </div>
-      </div>
-        </div>
+        </>
     )
 }
 

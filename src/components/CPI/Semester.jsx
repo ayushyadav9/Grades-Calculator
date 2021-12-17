@@ -1,7 +1,7 @@
 import React from 'react'
 import { grades } from '../../content/depts'
 
-const Semester = ({sems ,courses, handelGradeChange}) => {
+const Semester = ({sems ,courses, handelGradeChange, setaddCourseSem}) => {
     return (
         <div className="text-center">
       <div className="container my-4" id="FirstSemCard">
@@ -39,7 +39,7 @@ const Semester = ({sems ,courses, handelGradeChange}) => {
                 <tr>
                   <td>
                     <div className="container">
-                      <button className="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#addCourseModal">Add Course</button>
+                      <button className="btn btn-outline-success" data-bs-toggle="modal" onClick={()=>setaddCourseSem(sems)}  data-bs-target="#addCourseModal">Add Course</button>
                     </div>
                   </td><td></td><td></td>
                 </tr>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-const Alert = ({spi,setAlert,error,seterror}) => {
+const Alert = ({cpi,setAlert,error,seterror}) => {
     
     useEffect(() => {
         document.getElementById('alertModal').click();
@@ -19,11 +19,11 @@ const Alert = ({spi,setAlert,error,seterror}) => {
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
-                <h5 className="modal-title" id="staticBackdropLabel">{error?"Error":"SPI calculated"}</h5>
+                <h5 className="modal-title" id="staticBackdropLabel">{error?"Error":"CPI calculated"}</h5>
                 <button type="button" onClick={handelClose} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-                {error? error : `Your SPI is ${spi}`}
+                {error? error : `Your CPI is ${cpi}`}
             </div>
             <div className="modal-footer">
                 <button type="button" onClick={handelClose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

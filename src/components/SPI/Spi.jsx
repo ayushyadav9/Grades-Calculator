@@ -126,7 +126,7 @@ const Spi = () => {
       </div>
       <div className="container" id="btn_cal">
         <div className="row my-4">
-          <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateSPI}>Calculate CPI</button></div>
+          <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateSPI}>Calculate SPI</button></div>
           <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger">Calculate Again</button></div>
         </div>
       </div>
