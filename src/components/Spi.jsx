@@ -3,10 +3,35 @@ import { eee, ece, grades } from "../content/depts";
 import Alert from "./Alert";
 import Popup from "./Popup";
 
+const gradeMultiplier = (grade)=>{
+  switch (grade) {
+    case "AA/AS": return 10
+    case "AB": return 9
+    case "BB": return 8
+    case "BC": return 7
+    case "CC": return 6
+    case "CD": return 5
+    case "DD": return 4
+    default: return 0
+  }
+}
+
+const SPICalculator = (data)=>{
+  let ans = 0;
+  let tc = 0;
+  for(let i=0;i<data.length;i++){
+    ans += data[i].credit*(data[i].grade?gradeMultiplier(data[i].grade):0)
+    tc += data[i].credit
+  }
+  return (ans/tc).toFixed(2);
+}
+
 const Spi = () => {
     const [data, setdata] = useState(null)
     const [sems, setsems] = useState(0)
-    const [error, seterror] = useState(false)
+    const [alert, setAlert] = useState(false)
+    const [spi, setSpi] = useState(0)
+    const [error, seterror] = useState(null)
 
     useEffect(() => {
       var url = new URL(window.location.href)
@@ -30,8 +55,14 @@ const Spi = () => {
       setdata([...data,newCourse])
     }
 
-    const handelAddCourse = ()=>{
-      seterror(true)
+    const handelCalculateSPI = ()=>{
+      const checkError = data.filter((ele)=>ele.grade?true:false);
+      if(checkError.length===0){
+        seterror("Please Choose Grade of at least one Course")
+      }else{
+        setSpi(SPICalculator(data))
+      }
+      setAlert(true)
     }
 
     const handelGradeChange = (grade,idx)=>{
@@ -46,7 +77,7 @@ const Spi = () => {
   return (
     <>
     <Popup handelAddCourseSubmit={handelAddCourseSubmit}/>
-     {error && <Alert/>}
+     {alert && <Alert spi={spi} setAlert={setAlert} error={error} seterror={seterror}/>}
     <div className="text-center">
       <div className="container my-4" id="FirstSemCard">
         <div className="card">
@@ -83,7 +114,7 @@ const Spi = () => {
                 <tr>
                   <td>
                     <div className="container">
-                      <button className="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#addCourseModal" onClick={handelAddCourse} >Add Course</button>
+                      <button className="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#addCourseModal">Add Course</button>
                     </div>
                   </td><td></td><td></td>
                 </tr>
@@ -91,10 +122,10 @@ const Spi = () => {
           </table>
         </div>
       </div>
-      <div class="container" id="btn_cal">
-        <div class="row my-4">
-          <div class="col-6"><button class="btn btn-success" id="btn_CPI" onClick={()=>seterror(true)}>Calculate CPI</button></div>
-          <div class="col-6"><button id="calculateagain_btn" class="btn btn-danger">Calculate Again</button></div>
+      <div className="container" id="btn_cal">
+        <div className="row my-4">
+          <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateSPI}>Calculate CPI</button></div>
+          <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger">Calculate Again</button></div>
         </div>
       </div>
     </div>
