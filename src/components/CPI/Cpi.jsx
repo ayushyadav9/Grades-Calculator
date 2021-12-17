@@ -36,9 +36,11 @@ const Cpi = () => {
         var sem = url.searchParams.get("sem")
         var dept = url.searchParams.get("dept")
         if(dept==="EEE"){
-            setdata(eee.slice(0,sem))
+            let tdata = eee.slice(0,sem);
+            setdata(tdata)
         }else if(dept==="ECE"){
-            setdata(ece.slice(0,sem))
+            let tdata = ece.slice(0,sem);
+            setdata(tdata)
         }
     }, [])
 
