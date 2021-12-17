@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { eee, ece, grades } from "../content/depts";
+import Alert from "./Alert";
 import Popup from "./Popup";
 
 const Spi = () => {
     const [data, setdata] = useState(null)
     const [sems, setsems] = useState(0)
+    const [error, seterror] = useState(false)
 
     useEffect(() => {
       var url = new URL(window.location.href)
@@ -29,7 +31,7 @@ const Spi = () => {
     }
 
     const handelAddCourse = ()=>{
-      document.getElementById('popupButton').click();
+      seterror(true)
     }
 
     const handelGradeChange = (grade,idx)=>{
@@ -44,6 +46,7 @@ const Spi = () => {
   return (
     <>
     <Popup handelAddCourseSubmit={handelAddCourseSubmit}/>
+     {error && <Alert/>}
     <div className="text-center">
       <div className="container my-4" id="FirstSemCard">
         <div className="card">
@@ -59,10 +62,10 @@ const Spi = () => {
             <tbody className="text-uppercase">
                 {data && data.map((course,idx)=>{
                     return(
-                        <tr key={idx}>
-                        <td>{course.courseName}</td>
-                        <td>{course.credit}</td>
-                        <td>
+                    <tr key={idx}>
+                      <td>{course.courseName}</td>
+                      <td>{course.credit}</td>
+                      <td>
                         <div className="btn-group">
                             <button type="button"className="btn btn-success dropdown-toggle my-2"data-bs-toggle="dropdown" aria-expanded="false">
                             {course.grade?course.grade:"Grade"}
@@ -73,19 +76,25 @@ const Spi = () => {
                                 })}
                             </ul>
                         </div>
-                        </td>
+                      </td>
                     </tr>
                     )
                 })}
                 <tr>
                   <td>
                     <div className="container">
-                      <button className="btn btn-outline-success" onClick={handelAddCourse} >Add Course</button>
+                      <button className="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#addCourseModal" onClick={handelAddCourse} >Add Course</button>
                     </div>
                   </td><td></td><td></td>
                 </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class="container" id="btn_cal">
+        <div class="row my-4">
+          <div class="col-6"><button class="btn btn-success" id="btn_CPI" onClick={()=>seterror(true)}>Calculate CPI</button></div>
+          <div class="col-6"><button id="calculateagain_btn" class="btn btn-danger">Calculate Again</button></div>
         </div>
       </div>
     </div>

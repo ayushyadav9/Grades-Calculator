@@ -21,15 +21,12 @@ const Popup = ({handelAddCourseSubmit}) => {
     setCourse("")
     setGradeValue({name:"Grade",value:0})
     setcreditValue(0)
-    document.getElementById('popupButton').click();
+    document.getElementById('closeModal').click();
   }
 
   return (
     <>
-      <button id="popupButton" type="button" className="btn btn-primary d-none" data-bs-toggle="modal"data-bs-target="#exampleModal">
-        Add Course
-      </button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+      <div className="modal fade" id="addCourseModal" tabIndex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -62,7 +59,7 @@ const Popup = ({handelAddCourseSubmit}) => {
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+              <button type="button" id ="closeModal" className="btn btn-secondary" data-bs-dismiss="modal">
                 Close
               </button>
               <button type="button" disabled={isDisabled}  className="btn btn-primary" onClick={handelSubmit}>
