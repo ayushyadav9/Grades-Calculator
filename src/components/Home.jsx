@@ -23,70 +23,70 @@ const Home = () => {
     }
 
     return (
-        <div class="container">
-        <h1 class="text-center h1 my-4">CPI/SPI Calculator</h1>
-        <div class="container">
-            <div class="row text-center my-4">
-                <div class="col-lg-4">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle my-2" data-bs-toggle="dropdown" aria-expanded="false">
+        <div className="container">
+        <h1 className="text-center h1 my-4">CPI/SPI Calculator</h1>
+        <div className="container">
+            <div className="row text-center my-4">
+                <div className="col-lg-4">
+                <div className="btn-group">
+                    <button type="button" className="btn btn-success dropdown-toggle my-2" data-bs-toggle="dropdown" aria-expanded="false">
                         {cpispi}
                     </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item" onClick={()=>setcpispi("CPI")} style={{cursor:"pointer"}}>CPI</li>
-                            <li class="dropdown-item" onClick={()=>setcpispi("SPI")} style={{cursor:"pointer"}}>SPI</li>
+                        <ul className="dropdown-menu">
+                            <li className="dropdown-item" onClick={()=>setcpispi("CPI")} style={{cursor:"pointer"}}>CPI</li>
+                            <li className="dropdown-item" onClick={()=>setcpispi("SPI")} style={{cursor:"pointer"}}>SPI</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle my-2" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className="col-lg-4">
+                <div className="btn-group">
+                    <button type="button" className="btn btn-success dropdown-toggle my-2" data-bs-toggle="dropdown" aria-expanded="false">
                         {seme.name}
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                         {semesters.map((sem,i)=>{
-                            return <li key={i} class="dropdown-item" onClick={()=>setseme(sem)} style={{cursor:"pointer"}}>{sem.name}</li>
+                            return <li key={i} className="dropdown-item" onClick={()=>setseme(sem)} style={{cursor:"pointer"}}>{sem.name}</li>
                         })}
                     </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle my-2" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className="col-lg-4">
+                    <div className="btn-group">
+                    <button type="button" className="btn btn-success dropdown-toggle my-2" data-bs-toggle="dropdown" aria-expanded="false">
                         {dept}
                     </button>
-                        <ul class="dropdown-menu">
+                        <ul className="dropdown-menu">
                             {departments.map((dept,i)=>{
-                                return <li key={i} class="dropdown-item" onClick={()=>setdept(dept.value)} style={{cursor:"pointer"}}>{dept.name}</li>
+                                return <li key={i} className="dropdown-item" onClick={()=>setdept(dept.value)} style={{cursor:"pointer"}}>{dept.name}</li>
                             })}
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="d-grid gap-2 d-md-flex">
-            <button type="button" disabled={isDisabled} class="btn btn-primary mx-auto" onClick={handelSubmit}>Submit</button>
+        <div className="d-grid gap-2 d-md-flex">
+            <button type="button" disabled={isDisabled} className="btn btn-primary mx-auto" onClick={handelSubmit}>Submit</button>
         </div>
-        <section class="my-4">
-            <div class="container">
-                <div class="card">
-                    <h2 class="card-header text-center">How to Use</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item font-weight-bold">* Enter the latest grade recieved in Repeated Course</li>
-                        <li class="list-group-item">Select SPI or CPI , then select Semester/Semester Completed and then
+        <section className="my-4">
+            <div className="container">
+                <div className="card">
+                    <h2 className="card-header text-center">How to Use</h2>
+                    <ul className="list-group">
+                        <li className="list-group-item font-weight-bold">* Enter the latest grade recieved in Repeated Course</li>
+                        <li className="list-group-item">Select SPI or CPI , then select Semester/Semester Completed and then
                             your
                             Department</li>
-                        <li class="list-group-item">Select coursewise Grade and hit Calculate Button</li>
-                        <li class="list-group-item">Courses having S/X are not calculated in CPI/SPI</li>
-                        <li class="list-group-item">Courses not done can be left empty and 'Add Course' can be used to add
+                        <li className="list-group-item">Select coursewise Grade and hit Calculate Button</li>
+                        <li className="list-group-item">Courses having S/X are not calculated in CPI/SPI</li>
+                        <li className="list-group-item">Courses not done can be left empty and 'Add Course' can be used to add
                             extra Courses.Adding Course name is not Mandatory</li>
-                        <li class="list-group-item">You can also estimate your CPI by entering expected CPI and total
+                        <li className="list-group-item">You can also estimate your CPI by entering expected CPI and total
                             credit(total credit done at end of any sem( ex-413 for Chemistry at end of 8 sem))</li>
-                        <li class="list-group-item">For estimation you will need to enter your all Course grades till
+                        <li className="list-group-item">For estimation you will need to enter your all Course grades till
                             recent semester</li>
-                        <li class="list-group-item">MTech/MSc student can add their course manually</li>
+                        <li className="list-group-item">MTech/MSc student can add their course manually</li>
                     </ul>
                 </div>
             </div>

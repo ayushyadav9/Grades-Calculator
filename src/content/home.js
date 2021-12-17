@@ -1,48 +1,12 @@
 export const departments = [
     {
-        name:"Biosciences & Bioengineering",
-        value:"BST"
-    },
-    {
-        name:"Chemical Engineering",
-        value:"CST"
-    },
-    {
-        name:"Chemistry",
-        value:"C"
-    },
-    {
-        name:"Civil Engineering",
-        value:"CE"
-    },
-    {
-        name:"Computer Science and Engineering",
-        value:"CSE"
-    },
-    {
-        name:"Design",
-        value:"Design"
-    },
-    {
         name:"Electronics & Electrical Engineering",
         value:"EEE"
     },
     {
-        name:"Humanities and Social Sciences",
-        value:"HSC"
-    },
-    {
-        name:"Mathematics",
-        value:"MNC"
-    },
-    {
-        name:"Mechanical Engineering",
-        value:"ME"
-    },
-    {
-        name:"Physics",
-        value:"EP"
-    },
+        name:"Electronics & Communication Engineering",
+        value:"ECE"
+    }
 ]
 
 export const semesters = [
