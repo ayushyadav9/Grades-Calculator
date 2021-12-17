@@ -17,6 +17,7 @@ const gradeMultiplier = (grade)=>{
 }
 
 const SPICalculator = (data)=>{
+  console.log(data)
   let ans = 0;
   let tc = 0;
   for(let i=0;i<data.length;i++){
@@ -49,10 +50,11 @@ const Spi = () => {
     const handelAddCourseSubmit = (course,gradeValue,creditValue)=>{
       let newCourse = {
         courseName:course,
-        credit:creditValue,
+        credit:parseInt(creditValue),
         grade:gradeValue.name
       }
       setdata([...data,newCourse])
+      
     }
 
     const handelCalculateSPI = ()=>{
