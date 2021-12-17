@@ -62,10 +62,12 @@ const Cpi = () => {
     
     const handelCalculateCPI = () =>{
         let checkError =[]
+        let lengt = 0
         for (let i = 0; i < data.length; i++) {
             checkError = data[i].filter((ele)=>ele.grade?true:false);
+            lengt+=checkError.length
         }
-        if(checkError.length===0){
+        if(lengt===0){
             seterror("Please Choose Grade of at least one Course")
         }else{
             setCpi(CPICalculator(data))
