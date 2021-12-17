@@ -4,7 +4,7 @@ import { grades } from "../../content/depts";
 const Popup = ({handelAddCourseSubmit}) => {
   const [course, setCourse] = useState("")
   const [gradeValue, setGradeValue] = useState({name:"Grade",value:0})
-  const [creditValue, setcreditValue] = useState(0)
+  const [creditValue, setcreditValue] = useState(null)
   const [isDisabled, setisDisabled] = useState(true)
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Popup = ({handelAddCourseSubmit}) => {
     handelAddCourseSubmit(course,gradeValue,creditValue)
     setCourse("")
     setGradeValue({name:"Grade",value:0})
-    setcreditValue(0)
+    setcreditValue(null)
     document.getElementById('closeModal').click();
   }
 
