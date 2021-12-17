@@ -4,11 +4,11 @@ import { grades } from "../../content/depts";
 const Popup = ({handelAddCourseSubmit}) => {
   const [course, setCourse] = useState("")
   const [gradeValue, setGradeValue] = useState({name:"Grade",value:0})
-  const [creditValue, setcreditValue] = useState(0)
+  const [creditValue, setcreditValue] = useState(null)
   const [isDisabled, setisDisabled] = useState(true)
 
   useEffect(() => {
-    if(course!=="" && gradeValue.value!==0 ){
+    if(course!=="" && gradeValue.value!==0 && creditValue!==null){
       setisDisabled(false)
     }
     else{
