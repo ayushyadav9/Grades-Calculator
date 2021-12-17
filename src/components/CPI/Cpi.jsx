@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { ece,eee } from '../../content/depts'
 import Semester from './Semester'
+import useWindowDimensions from "../Utils/useWindowDimensions";
 
 const gradeMultiplier = (grade)=>{
     switch (grade) {
@@ -28,7 +29,9 @@ const gradeMultiplier = (grade)=>{
   }
 
 const Cpi = () => {
+
     const [data, setdata] = useState(null)
+    const { width } = useWindowDimensions();
 
     useEffect(() => {
         var url = new URL(window.location.href)
@@ -55,14 +58,14 @@ const Cpi = () => {
     }
 
     return (
-        <div className="card" >
-            <div className="card-body">
-                <div className="row">
+        <div className={`${width<600?"":"card"}`} >
+             <div className={`${width<600?"":"card-body"}`}>
+                <div className={`${width<600?"":"row"}`}>
                     {data && data.map((semester,i)=>{
                         return <div key={i} className="col-md-6"><Semester sems = {i+1} courses = {semester} handelGradeChange={handelGradeChange}/> </div> 
                     })} 
                 </div>   
-            </div>
+             </div>
             <div className="container" id="btn_cal">
         <div className="row my-4">
           <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateCPI}>Calculate CPI</button></div>
