@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import React, { useState,useEffect } from 'react'
 import { ece,eee } from '../../content/depts'
 import Semester from './Semester'
 
@@ -36,11 +35,9 @@ const Cpi = () => {
         var sem = url.searchParams.get("sem")
         var dept = url.searchParams.get("dept")
         if(dept==="EEE"){
-            let tdata = eee.slice(0,sem);
-            setdata(tdata)
+            setdata(eee.slice(0,sem))
         }else if(dept==="ECE"){
-            let tdata = ece.slice(0,sem);
-            setdata(tdata)
+            setdata(ece.slice(0,sem))
         }
     }, [])
 
