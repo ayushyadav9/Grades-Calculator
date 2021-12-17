@@ -79,14 +79,8 @@ const Home = () => {
                             your
                             Department</li>
                         <li className="list-group-item">Select coursewise Grade and hit Calculate Button</li>
-                        <li className="list-group-item">Courses having S/X are not calculated in CPI/SPI</li>
                         <li className="list-group-item">Courses not done can be left empty and 'Add Course' can be used to add
-                            extra Courses.Adding Course name is not Mandatory</li>
-                        <li className="list-group-item">You can also estimate your CPI by entering expected CPI and total
-                            credit(total credit done at end of any sem( ex-413 for Chemistry at end of 8 sem))</li>
-                        <li className="list-group-item">For estimation you will need to enter your all Course grades till
-                            recent semester</li>
-                        <li className="list-group-item">MTech/MSc student can add their course manually</li>
+                            extra Courses.Adding Course details are not Mandatory</li>
                     </ul>
                 </div>
             </div>
