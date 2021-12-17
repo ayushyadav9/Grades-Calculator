@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { grades } from "../content/depts";
+import { grades } from "../../content/depts";
 
 const Popup = ({handelAddCourseSubmit}) => {
   const [course, setCourse] = useState("")

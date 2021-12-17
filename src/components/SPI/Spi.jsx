@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { eee, ece, grades } from "../content/depts";
+import { eee, ece, grades } from "../../content/depts";
 import Alert from "./Alert";
 import Popup from "./Popup";
 
