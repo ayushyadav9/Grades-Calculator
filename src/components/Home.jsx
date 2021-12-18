@@ -33,8 +33,8 @@ const Home = () => {
                         {cpispi}
                     </button>
                         <ul className="dropdown-menu">
-                            <li className="dropdown-item" onClick={()=>setcpispi("CPI")} style={{cursor:"pointer"}}>CPI</li>
-                            <li className="dropdown-item" onClick={()=>setcpispi("SPI")} style={{cursor:"pointer"}}>SPI</li>
+                            <li className="dropdown-item" onClick={()=>{setcpispi("CPI"); setseme({name:"Semesters Completed",value:0})}} style={{cursor:"pointer"}}>CPI</li>
+                            <li className="dropdown-item" onClick={()=>{setcpispi("SPI"); setseme({name:"Semester",value:0})}} style={{cursor:"pointer"}}>SPI</li>
                         </ul>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ const Home = () => {
                     </button>
                     <ul className="dropdown-menu">
                         {semesters.map((sem,i)=>{
-                            return <li key={i} className="dropdown-item" onClick={()=>setseme(sem)} style={{cursor:"pointer"}}>{sem.name}</li>
+                            return <li key={i} className="dropdown-item text-center" onClick={()=>setseme(sem)} style={{cursor:"pointer"}}>{sem.name}</li>
                         })}
                     </ul>
                     </div>
@@ -74,13 +74,10 @@ const Home = () => {
                 <div className="card">
                     <h2 className="card-header text-center">How to Use</h2>
                     <ul className="list-group">
-                        <li className="list-group-item font-weight-bold">* Enter the latest grade recieved in Repeated Course</li>
-                        <li className="list-group-item">Select SPI or CPI , then select Semester/Semester Completed and then
-                            your
-                            Department</li>
+                        <li className="list-group-item">Select SPI or CPI , then select Semester/Semesters Completed and then your Department</li>
                         <li className="list-group-item">Select coursewise Grade and hit Calculate Button</li>
-                        <li className="list-group-item">Courses not done can be left empty and 'Add Course' can be used to add
-                            extra Courses.Adding Course details are not Mandatory</li>
+                        <li className="list-group-item">Courses not done can be left empty or you can choose <strong>DROP</strong> from Grades dropdown menu.</li>
+                        <li className="list-group-item"><strong>Add Course</strong> can be used to add extra Courses. Adding Course details are Mandatory</li>
                     </ul>
                 </div>
             </div>

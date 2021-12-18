@@ -4,6 +4,8 @@ import Semester from './Semester'
 import useWindowDimensions from "../Utils/useWindowDimensions";
 import Popup from '../SPI/Popup';
 import Alert from './Alert';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const gradeMultiplier = (grade)=>{
     switch (grade) {
@@ -105,12 +107,20 @@ const Cpi = () => {
             <div className="container" id="btn_cal">
                 <div className="row my-4">
                     <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateCPI}>Calculate CPI</button></div>
-                    <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger">Calculate Again</button></div>
+                    <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger"><ViewLink to ="/">Go to Home</ViewLink></button></div>
                 </div>
             </div>
         </div>
         </>
     )
 }
+
+const ViewLink = styled(Link)`
+  text-decoration:none;
+  color: white;
+  &:hover{
+    color: white;
+  }
+`
 
 export default Cpi

@@ -26,6 +26,10 @@ export const grades = [
     {
         name:"DD",
         value:4
+    },
+    {
+        name:"Drop",
+        value:0
     }
 ]
 
@@ -267,6 +271,10 @@ export const eee = [
 export const ece = [
     [
         {
+            courseName:"CE101",
+            credit: 7
+        },
+        {
             courseName:"CH101",
             credit: 8
         },
@@ -283,10 +291,6 @@ export const ece = [
             credit: 8
         },
         {
-            courseName:"ME111",
-            credit: 7
-        },
-        {
             courseName:"PH101",
             credit: 6
         },
@@ -297,15 +301,27 @@ export const ece = [
     ],
     [
         {
-            courseName:"BT101",
+            courseName:"PH102",
             credit: 6
+        },
+        {
+            courseName:"CS110",
+            credit: 3
         },
         {
             courseName:"CS101",
             credit: 6
         },
         {
-            courseName:"CS110",
+            courseName:"BT101",
+            credit: 6
+        },
+        {
+            courseName:"ME101",
+            credit: 8
+        },
+        {
+            courseName:"ME110/PH110",
             credit: 3
         },
         {
@@ -315,23 +331,15 @@ export const ece = [
         {
             courseName:"MA102",
             credit: 8
-        },
-        {
-            courseName:"ME101",
-            credit: 8
-        },
-        {
-            courseName:"PH102",
-            credit: 6
-        },
-        {
-            courseName:"ME110/PH110",
-            credit: 3
         }
     ],
     [
         {
-            courseName:"MA201",
+            courseName:"EE220",
+            credit: 8
+        },
+        {
+            courseName:"EE204",
             credit: 8
         },
         {
@@ -339,51 +347,47 @@ export const ece = [
             credit: 6
         },
         {
-            courseName:"EE204",
+            courseName:"MA201",
             credit: 8
         },
         {
             courseName:"EE210",
             credit: 6
+        }
+    ],
+    [
+        {
+            courseName:"EE250",
+            credit: 8
         },
         {
             courseName:"EE211",
             credit: 3
         },
         {
-            courseName:"EE220",
-            credit: 8
-        }
-    ],
-    [
+            courseName:"EE252",
+            credit: 6
+        },
         {
-            courseName:"EE206",
-            credit: 8
+            courseName:"HS1xx",
+            credit: 6
         },
         {
             courseName:"EE207",
             credit: 3
         },
         {
-            courseName:"EE230",
-            credit: 8
-        },
-        {
-            courseName:"EE250",
-            credit: 8
-        },
-        {
-            courseName:"EE252",
-            credit: 6
-        },
-        {
             courseName:"EE253",
             credit: 3
         },
         {
-            courseName:"HS1xx",
-            credit: 6
-        }
+            courseName:"EE206",
+            credit: 8
+        },
+        {
+            courseName:"EE230",
+            credit: 8
+        },
     ],
     [
         {

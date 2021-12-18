@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { eee, ece, grades } from "../../content/depts";
 import Alert from "./Alert";
 import Popup from "./Popup";
@@ -127,12 +129,20 @@ const Spi = () => {
       <div className="container" id="btn_cal">
         <div className="row my-4">
           <div className="col-6"><button className="btn btn-success" id="btn_CPI" onClick={handelCalculateSPI}>Calculate SPI</button></div>
-          <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger">Calculate Again</button></div>
+          <div className="col-6"><button id="calculateagain_btn" className="btn btn-danger"><ViewLink to ="/">Go to Home</ViewLink></button></div>
         </div>
       </div>
     </div>
     </>
   );
 };
+
+const ViewLink = styled(Link)`
+  text-decoration:none;
+  color: white;
+  &:hover{
+    color: white;
+  }
+`
 
 export default Spi;

@@ -11,35 +11,35 @@ export const departments = [
 
 export const semesters = [
     {
-        name: "First Sem",
+        name: "One",
         value: 1
     },
     {
-        name: "Second Sem",
+        name: "Two",
         value: 2
     },
     {
-        name: "Third Sem",
+        name: "Three",
         value: 3
     },
     {
-        name: "Fourth Sem",
+        name: "Four",
         value: 4
     },
     {
-        name: "Fifth Sem",
+        name: "Five",
         value: 5
     },
     {
-        name: "Sixth Sem",
+        name: "Six",
         value: 6
     },
     {
-        name: "Seventh Sem",
+        name: "Seven",
         value: 7
     },
     {
-        name: "Eighth Sem",
+        name: "Eight",
         value: 8
     }
 ]
